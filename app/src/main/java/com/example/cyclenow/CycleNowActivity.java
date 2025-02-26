@@ -3,10 +3,8 @@ package com.example.cyclenow;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
-
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
-
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -16,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cyclenow.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class CycleNowActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
