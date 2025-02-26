@@ -1,11 +1,8 @@
 package com.example.cyclenow.ui.home;
 
-import android.app.DatePickerDialog;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -13,10 +10,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cyclenow.R;
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.util.Calendar;
 
-public class RegistrationActivity extends AppCompatActivity {
+public class RegistrationActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     private EditText ageEditText; // For date of birth
     private Spinner genderSpinner; // For gender selection
@@ -77,18 +75,32 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private void showDatePickerDialog() {
         // Get the current date
-        final Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        Calendar now = Calendar.getInstance();
 
-        // Create a DatePickerDialog and show it
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
-                (view, year1, month1, dayOfMonth) -> {
-                    // Set the selected date to the EditText using a resource string with placeholders
-                    String date = getString(R.string.date_format, dayOfMonth, month1 + 1, year1);
-                    ageEditText.setText(date);
-                }, year, month, day);
-        datePickerDialog.show();
+        // Create and show the Material DatePickerDialog
+        DatePickerDialog dpd = DatePickerDialog.newInstance(
+                this, // Use `this` because the activity implements OnDateSetListener
+                now.get(Calendar.YEAR), // Initial year selection
+                now.get(Calendar.MONTH), // Initial month selection
+                now.get(Calendar.DAY_OF_MONTH) // Initial day selection
+        );
+
+        // Set the minimum and maximum dates (optional)
+        Calendar minDate = Calendar.getInstance();
+        minDate.set(1900, Calendar.JANUARY, 1); // Minimum date: January 1, 1900
+        dpd.setMinDate(minDate);
+
+        Calendar maxDate = Calendar.getInstance();
+        dpd.setMaxDate(maxDate); // Maximum date: today
+
+        // Show the dialog
+        dpd.show(getSupportFragmentManager(), "DatePickerDialog");
+    }
+
+    @Override
+    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+        // Set the selected date to the EditText using a resource string with placeholders
+        String date = getString(R.string.date_format, dayOfMonth, monthOfYear + 1, year);
+        ageEditText.setText(date);
     }
 }

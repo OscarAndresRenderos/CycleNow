@@ -6,45 +6,65 @@
     android:padding="16dp"
     android:gravity="center">
 
+    <!-- Welcome Message -->
+    <TextView
+        android:id="@+id/welcomeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_message"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- First Name -->
     <EditText
         android:id="@+id/firstNameEditText"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/first_name"
         android:inputType="textPersonName"
         android:autofillHints="username"
+        android:minHeight="48dp"
         android:layout_marginBottom="16dp"/>
 
+    <!-- Last Name -->
     <EditText
         android:id="@+id/lastNameEditText"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/last_name"
         android:inputType="textPersonName"
         android:autofillHints="username"
+        android:minHeight="48dp"
         android:layout_marginBottom="16dp"/>
 
+    <!-- Date of Birth -->
     <EditText
         android:id="@+id/ageEditText"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/date_of_birth"
-        android:focusable="false"
-        android:clickable="true"
         android:inputType="date"
         android:autofillHints="birthDate"
+        android:minHeight="48dp"
         android:layout_marginBottom="16dp"/>
 
+    <!-- Gender Spinner -->
     <Spinner
         android:id="@+id/genderSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="16dp"/>
 
+    <!-- Register Button -->
     <Button
         android:id="@+id/registerButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/register" />
-
+        android:text="@string/register"
+        android:backgroundTint="@color/primaryColor"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"/>
 </LinearLayout>
