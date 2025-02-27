@@ -32,14 +32,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/register"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/teal_700"/>
-
+        android:textColor="@android:color/white"
+        android:backgroundTint="@android:color/black"
+        android:layout_marginBottom="8dp"/>/>
 
     <Button
         android:id="@+id/googleSignInButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/sign_in_with_google"
-        android:backgroundTint="@color/teal_700"/>
+        android:textColor="@android:color/white"
+        android:backgroundTint="@android:color/black"/>
 </LinearLayout>
